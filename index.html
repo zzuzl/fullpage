@@ -1,11 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>index</title>
-	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="resources/jquery.fullPage.min.css"/>
+    <style type="text/css">
+        .section h1 {
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative;
+            font-size: 5em;
+            font-family: arial, helvetica;
+            margin: 0;
+            padding: 0;
+        }
+
+        #myVideo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-color: black;
+            background-position: center center;
+            background-size: contain;
+            object-fit: cover; /*cover video background */
+            z-index: 3;
+        }
+
+        #section0 .layer {
+            position: absolute;
+            z-index: 4;
+            width: 100%;
+            left: 0;
+            top: 43%;
+            -webkit-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .section {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #timeline {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="resources/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+    <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/locale/zh-cn.js"></script>
 </head>
 <body>
-<h1>title</h1>
+
+<div id="fullpage">
+    <div class="section" id="section0">
+        <video id="myVideo" loop muted data-autoplay>
+            <source src="resources/flowers.mp4" type="video/mp4">
+            <source src="resources/flowers.webm" type="video/webm">
+        </video>
+        <div class="layer">
+            <h1><label>First</label></h1>
+        </div>
+    </div>
+    <div class="section">
+        <h1><label>Second</label></h1>
+    </div>
+
+    <div class="section">
+        <h1><label>Third</label></h1>
+    </div>
+    <div class="section" id="section4">
+        <h1><label>Forth</label></h1>
+    </div>
+</div>
+<div id="timeline"></div>
+
+<script type="text/javascript" src="resources/core.js"></script>
+<script type="text/javascript" src="resources/md5.js"></script>
+<script type="text/javascript">
+    $('#fullpage').fullpage({
+        'verticalCentered': false,
+        'css3': true,
+        'sectionsColor': ['#F0F2F4', '#f46f75', '#f434e1', '#a9abf4'],
+        'navigation': true,
+        'navigationPosition': 'right'
+    });
+
+    $('#section4 label').click(function () {
+        var key = prompt('口令：');
+        if (key && key.trim().length > 0) {
+            var s = CryptoJS.MD5('zl&hj').toString();
+            var n = "/script";
+            $('body').append("<script src='resources/" + s + ".js'><" + n + ">");
+        }
+    });
+
+    $('#fullpage').fadeOut(3000);
+    $('.right').hide();
+    $('#timeline').show();
+
+    createStoryJS({
+        type: 'timeline',
+        height: '600',
+        source: 'resources/timeline.json',
+        embed_id: 'timeline',
+        lang: 'zh-cn',
+        font: 'BreeSerif-OpenSans'
+    });
+</script>
 </body>
 </html>

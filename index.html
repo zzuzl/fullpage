@@ -4,22 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>index</title>
     <link rel="stylesheet" type="text/css" href="./resources/jquery.fullpage.min.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video-js.css" rel="stylesheet">
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.abril-droidsans.css">
     <link rel="stylesheet" type="text/css" href="./resources/style.css"/>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="resources/jquery.fullpage.min.js"></script>
-    <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/locale/zh-cn.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 </head>
 <body>
 
 <div id="fullpage">
     <div class="section" id="section0">
-        <video id="myVideo" loop muted autoplay class="video-js" preload="auto" data-setup="{}" height="100%" width="100%">
-            <source src="resources/flowers.mp4" type="video/mp4">
-            <source src="resources/flowers.webm" type="video/webm">
-        </video>
         <div class="layer">
             <h1><label>First</label></h1>
         </div>
@@ -38,7 +35,7 @@
         <div id="heart"></div>
     </div>
 </div>
-<div id="timeline"></div>
+<div id="timeline" style="width: 100%; height: 600px"></div>
 
 <script type="text/javascript" src="resources/core.js"></script>
 <script type="text/javascript" src="resources/md5.js"></script>

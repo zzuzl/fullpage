@@ -1,7 +1,7 @@
 var json = {
     "title": {
         "media": {
-            "url": "//www.flickr.com/photos/tm_10001/2310475988/",
+            "url": "",
             "caption": "Whitney Houston performing on her My Love is Your Love Tour in Hamburg.",
             "credit": "flickr/<a href='http://www.flickr.com/photos/tm_10001/'>tm_10001</a>"
         },
@@ -13,7 +13,7 @@ var json = {
     "events": [
         {
             "media": {
-                "url": "{{ static_url }}/img/examples/houston/family.jpg",
+                "url": "",
                 "caption": "Houston's mother and Gospel singer, Cissy Houston (left) and cousin Dionne Warwick.",
                 "credit": "Cissy Houston photo:<a href='http://www.flickr.com/photos/11447043@N00/418180903/'>Tom Marcello</a><br/><a href='http://commons.wikimedia.org/wiki/File%3ADionne_Warwick_television_special_1969.JPG'>Dionne Warwick: CBS Television via Wikimedia Commons</a>"
             },
@@ -29,7 +29,7 @@ var json = {
         },
         {
             "media": {
-                "url": "https://youtu.be/eH3giaIzONA",
+                "url": "",
                 "caption": "I Wanna Dance With Somebody",
                 "credit": "Arista Records Inc."
             },
@@ -43,7 +43,7 @@ var json = {
         },
         {
             "media": {
-                "url": "https://youtu.be/96aAx0kxVSA",
+                "url": "",
                 "caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
                 "credit": "Arista Records Inc."
             },

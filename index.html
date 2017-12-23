@@ -2,34 +2,40 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>A Holy Place</title>
     <link rel="stylesheet" type="text/css" href="./resources/jquery.fullpage.min.css"/>
-    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-    <link title="timeline-styles" rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.abril-droidsans.css">
+    <link title="timeline-styles" rel="stylesheet"
+          href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <link title="timeline-styles" rel="stylesheet"
+          href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+    <link title="timeline-styles" rel="stylesheet"
+          href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.abril-droidsans.css">
     <link rel="stylesheet" type="text/css" href="./resources/style.css"/>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="resources/jquery.fullpage.min.js"></script>
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/locale/zh-cn.js"></script>
+    <script src="https://cdn.bootcss.com/twemoji/2.5.0/2/twemoji.min.js"></script>
+    <script src="https://cdn.bootcss.com/twemoji/2.5.0/twemoji.min.js"></script>
 </head>
 <body>
 
 <div id="fullpage">
     <div class="section" id="section0">
         <div class="layer">
-            <h1><label>First</label></h1>
+            <h1><label>Hi,你好</label></h1>
         </div>
     </div>
     <div class="section">
-        <h1><label>Second</label></h1>
+        <h1><label>误打误撞来到了这里吧~</label></h1>
     </div>
 
     <div class="section">
-        <h1><label>Third</label></h1>
+        <h1><label>这可是个神圣的地方</label></h1>
     </div>
     <div class="section" id="section4">
-        <h1><label>Forth</label></h1>
+        <h1><label>因为。。。</label></h1>
     </div>
     <div class="section">
         <div id="heart"></div>
@@ -40,22 +46,26 @@
 <script type="text/javascript" src="resources/core.js"></script>
 <script type="text/javascript" src="resources/md5.js"></script>
 <script type="text/javascript">
-    $('#fullpage').fullpage({
-        'verticalCentered': false,
-        'css3': true,
-        'sectionsColor': ['#F0F2F4', '#f46f75', '#f434e1', '#a9abf4'],
-        'navigation': true,
-        'navigationPosition': 'right'
-    });
+	$(function () {
+		$('#fullpage').show();
 
-    $('#section4 label').click(function () {
-        var key = prompt('口令：');
-        if (key && key.trim().length > 0) {
-            var s = CryptoJS.MD5(key).toString();
-            var n = "/script";
-            $('body').append("<script src='resources/" + s + ".js'><" + n + ">");
-        }
-    });
+		$('#fullpage').fullpage({
+			'verticalCentered': false,
+			'css3': true,
+			'sectionsColor': ['#F0F2F4', '#f46f75', '#f434e1', '#a9abf4', '#c7f4d4'],
+			'navigation': true,
+			'navigationPosition': 'right'
+		});
+
+		$('#heart').click(function () {
+			var key = prompt('主人，你好：');
+			if (key && key.trim().length > 0) {
+				var s = CryptoJS.MD5(key).toString();
+				var n = "/script";
+				$('body').append("<script src='resources/" + s + ".js'><" + n + ">");
+			}
+		});
+	});
 </script>
 </body>
 </html>

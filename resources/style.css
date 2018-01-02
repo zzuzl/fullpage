@@ -35,7 +35,7 @@ html, body {
     overflow: hidden;
 }
 
-#timeline {
+#timeline, #timeline-add, #timeline-form {
     display: none;
 }
 

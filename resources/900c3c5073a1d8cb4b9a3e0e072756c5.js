@@ -1,3 +1,9 @@
+var config = {
+    syncURL: "https://real-map.wilddogio.com"
+};
+wilddog.initializeApp(config);
+var ref = wilddog.sync().ref();
+
 var json = {
     "title": {
         "media": {
@@ -10,224 +16,81 @@ var json = {
             "text": "<p>遇到你是我的幸运，愿陪你走到天荒地老。 -- zl 2017-11-27</p>"
         }
     },
-    "events": [
-        {
+    "events": []
+};
+
+ref.once("value").then(function(snapshot){
+    var dataSet = snapshot.val();
+    for(var key in dataSet) {
+        json.events.push({
             "media": {
                 "url": "",
                 "caption": "Houston's mother and Gospel singer, Cissy Houston (left) and cousin Dionne Warwick.",
                 "credit": "Cissy Houston photo:<a href='http://www.flickr.com/photos/11447043@N00/418180903/'>Tom Marcello</a><br/><a href='http://commons.wikimedia.org/wiki/File%3ADionne_Warwick_television_special_1969.JPG'>Dionne Warwick: CBS Television via Wikimedia Commons</a>"
             },
             "start_date": {
-                "month": "11",
-                "day": "27",
-                "year": "2017"
+                "month": dataSet[key].month,
+                "day": dataSet[key].day,
+                "year": dataSet[key].year
             },
             "text": {
-                "headline": "我们的开始",
-                "text": "<p>11月27日中午，我通过同事认识了你，有句话叫“8杆子打不着边”，我3杆子就打着了。我们加了微信好友，下午我们侃侃而谈，期间还聊到了未来规划。。。那晚，我室友冒犯了你，你特别生气，在我的悉心安慰下，你终于平息了怒火，感觉有点hold不住你了。</p>"
+                "headline": dataSet[key].title,
+                "text": "<p>" + dataSet[key].text + "</p>"
             }
-        },
-        {
-            "media": {
-                "url": "",
-                "caption": "I Wanna Dance With Somebody",
-                "credit": "Arista Records Inc."
-            },
-            "start_date": {
-				"month": "12",
-				"day": "3",
-				"year": "2017"
-            },
-            "text": {
-                "headline": "了解",
-                "text": "<p>之后的这一周多的时间，我们每天都聊天到很晚，互相说了很多话，有关于星座的、关于情感经历的、关于三观的、关于。。。，另外我们还深入探讨了天秤座-‘渣男星座’</p>"
-            }
-        },
-        {
-            "media": {
-                "url": "",
-                "caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-                "credit": "Arista Records Inc."
-            },
-            "start_date": {
-				"month": "12",
-				"day": "5",
-				"year": "2017"
-            },
-            "text": {
-                "headline": "我的声音",
-                "text": "<p>你说你怂，我打电话给你，你说你很喜欢听我的声音，这是第一次有人告诉我喜欢听我的声音。</p>"
-            }
-        },
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "9",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第一次约会",
-				"text": "<p>第一次约会我们是在宋家庄站I口见面的，那天我们一起看了电影《寻梦环游记》，很好看你挑的，我们还一起吃了火锅。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "9",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第一次拒绝",
-				"text": "<p>这天晚上我说出了拒绝你的话，你很伤心，不再说话，那天晚上你还临时加了班。。。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "12",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第二次拒绝",
-				"text": "<p>这天晚上我第二次说出了拒绝你的话，你很伤心，我们决定做书友，并约好这周末一起到首图看书。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "15",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第三次拒绝",
-				"text": "<p>这天下午下班后，我在公司打台球，这是我第三次说出了拒绝你的话，你很伤心，我们决定做书友，并约好这周末一起到首图看书。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "17",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第二次约会",
-				"text": "<p>这是我们第二次约会，说好的看书，结果呢？两个人互相对眼看了一整天，晚上我还抱了你，你说你虚。。。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "19",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第三次约会",
-				"text": "<p>这是我们第三次约会，我一下班就去找你了，我们在蒲黄榆地铁站附近吃了饭，那天我手机莫名其妙出了问题，不能在美团下单了，还是你买的单呢。饭后本来只是散个步，无意到了一个公园，月黑风高，然后。。。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "24",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第三次约会",
-				"text": "<p>这是我们第三次约会，我一下班就去找你了，我们在蒲黄榆地铁站附近吃了饭，那天我手机莫名其妙出了问题，不能在美团下单了，还是你买的单呢。饭后本来只是散个步，无意到了一个公园，月黑风高，然后。。。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "24",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "第四次约会",
-				"text": "<p>这是我们第四次约会，你打扮的美美哒出来见我，我们看了电影《妖猫传》，虽然很费脑子，下午我们去了南锣鼓巷和后海，人不多不挤，一切都很开心，我们的感情比之前更加自然，晚上后海海边谈心，星巴克里喝拿铁。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "26",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "谁说爱情不是最无辜的",
-				"text": "<p>我想我是最窝囊的了吧。我从没见过比你更好的生物！说好的打着电话睡觉，你呢？早上还和我讲笑话。</p>"
-			}
-		},
-		{
-			"media": {
-				"url": "",
-				"caption": "\"One Moment In Time\" - Theme song to the 1988 Seoul Olympics",
-				"credit": "Arista Records Inc."
-			},
-			"start_date": {
-				"month": "12",
-				"day": "26",
-				"year": "2017"
-			},
-			"text": {
-				"headline": "你是我的初恋",
-				"text": "<p>经历了你，我会看不上任何人。</p>"
-			}
-		}
-    ]
-};
+        });
+    }
+    window.timeline = new TL.Timeline('timeline', json, options);
 
-var options = {
+    console.log(dataSet);
+}).catch(function(err){
+    console.error(err);
+});
 
-};
+var options = {};
+var show = false;
 
-$('#fullpage').fadeOut(3000);
+$('#fullpage').fadeOut(1000);
 $('.right').hide();
-$('#timeline').show();
+$('#timeline,#timeline-add').show();
 
-window.timeline = new TL.Timeline('timeline', json, options);
+$('#timeline-add').click(function () {
+    $('#timeline-form').show();
+
+    if(show) {
+        var date = $('#date').val();
+        var title = $('#title').val();
+        var text = $('#text').val();
+
+        var year, month, day;
+
+        if(date && date.trim().length > 0) {
+            var result = date.match(/(\d{4})-(\d{2})-(\d{2})/);
+            year = parseInt(result[1]);
+            month = parseInt(result[2]);
+            day = parseInt(result[3]);
+        } else {
+            alert('日期错误');
+        }
+
+        if(title && text && year && month && day && title.trim().length > 0 && text.trim().length > 0) {
+            var obj = {
+                'title': title.trim(),
+                'text': text.trim(),
+                'year': year,
+                'month': month,
+                'day': day
+            };
+            ref.push(obj).then(function (newRef) {
+                console.info(newRef.toString());
+                window.location.reload();
+            }).catch(function (err) {
+                alert('添加失败:' + err.code);
+                console.info('添加失败', err.code, err);
+            });
+        } else {
+            alert('内容不完整');
+        }
+    }
+
+    show = true;
+});

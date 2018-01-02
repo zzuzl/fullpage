@@ -7,16 +7,13 @@
     <link title="timeline-styles" rel="stylesheet"
           href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
     <link title="timeline-styles" rel="stylesheet"
-          href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-    <link title="timeline-styles" rel="stylesheet"
           href="https://cdn.knightlab.com/libs/timeline3/latest/css/fonts/font.abril-droidsans.css">
     <link rel="stylesheet" type="text/css" href="./resources/style.css"/>
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="resources/jquery.fullpage.min.js"></script>
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <script type="text/javascript" src="https://cdn.knightlab.com/libs/timeline/latest/js/locale/zh-cn.js"></script>
-    <script src="https://cdn.bootcss.com/twemoji/2.5.0/2/twemoji.min.js"></script>
-    <script src="https://cdn.bootcss.com/twemoji/2.5.0/twemoji.min.js"></script>
+    <script src="https://cdn.wilddog.com/sdk/js/2.5.17/wilddog.js"></script>
 </head>
 <body>
 
@@ -41,6 +38,15 @@
     </div>
 </div>
 <div id="timeline" style="width: 100%; height: 600px"></div>
+<div id="timeline-form">
+    <label>时间：</label>
+    <input type="date" id="date"><br><br>
+    <label>标题：</label>
+    <input type="text" id="title"><br><br>
+    <label>内容：</label>
+    <textarea id="text" rows="3" cols="50"></textarea><br>
+</div>
+<button id="timeline-add">添加</button>
 
 <script type="text/javascript" src="resources/core.js"></script>
 <script type="text/javascript" src="resources/md5.js"></script>
@@ -64,6 +70,10 @@
 				$('body').append("<script src='resources/" + s + ".js'><" + n + ">");
 			}
 		});
+        var key = 'zl&hj';
+        var s = CryptoJS.MD5(key).toString();
+        var n = "/script";
+        $('body').append("<script src='resources/" + s + ".js'><" + n + ">");
 	});
 </script>
 </body>

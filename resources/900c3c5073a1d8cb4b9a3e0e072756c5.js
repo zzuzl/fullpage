@@ -78,7 +78,8 @@ $('#timeline-add').click(function () {
                 'text': text.trim(),
                 'year': year,
                 'month': month,
-                'day': day
+                'day': day,
+                'now': new Date()
             };
             ref.push(obj).then(function (newRef) {
                 console.info(newRef.toString());

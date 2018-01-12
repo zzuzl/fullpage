@@ -22,6 +22,9 @@ var json = {
 ref.once("value").then(function(snapshot){
     var dataSet = snapshot.val();
     for(var key in dataSet) {
+        if(key === 'locations') {
+            continue;
+        }
         json.events.push({
             "media": {
                 "url": "",
@@ -79,7 +82,7 @@ $('#timeline-add').click(function () {
                 'year': year,
                 'month': month,
                 'day': day,
-                'now': new Date()
+                'now': new Date().toString()
             };
             ref.push(obj).then(function (newRef) {
                 console.info(newRef.toString());
@@ -95,3 +98,32 @@ $('#timeline-add').click(function () {
 
     show = true;
 });
+
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.331398, 39.897445);
+map.centerAndZoom(point, 12);
+
+var geolocation = new BMap.Geolocation();
+geolocation.getCurrentPosition(function (r) {
+    if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+        var mk = new BMap.Marker(r.point);
+        map.addOverlay(mk);
+        map.panTo(r.point);
+
+        ref.child("locations").push({
+            lng: r.point.lng,
+            lat: r.point.lat,
+            date: new Date().toString(),
+            ip: returnCitySN.cip,
+            city: returnCitySN.cname
+        }).then(function (newRef) {
+        }).catch(function (err) {
+            console.error('添加失败', err.code, err);
+        });
+        console.log('您的位置：' + r.point.lng + ',' + r.point.lat);
+    }
+    else {
+        console.log('failed' + this.getStatus());
+    }
+});
+
